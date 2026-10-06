@@ -1,0 +1,344 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --breakpoint-tab: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-wide: 840px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --font-sans: "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-control: var(--control);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --color-disabled: var(--disabled);
+  --color-piece: var(--piece-blue);
+  --color-overlay: var(--overlay);
+}
+
+:root {
+  --radius: 16px;
+  --background: #fbf9f5;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --primary-active: #047857;
+  --primary-soft: #ecfdf5;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #334155;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #fef3c7;
+  --accent-foreground: #92400e;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --control: #64748b;
+  --input: #64748b;
+  --ring: #3b82f6;
+  --success: #059669;
+  --success-bg: #ecfdf5;
+  --warning: #d97706;
+  --warning-bg: #fffbeb;
+  --error: #ef4444;
+  --error-bg: #fef2f2;
+  --info: #2563eb;
+  --info-bg: #eff6ff;
+  --disabled: #e2e8f0;
+  --piece-blue: #3b82f6;
+  --overlay: rgba(15, 23, 42, 0.45);
+  --shadow-card: 0 10px 25px -5px rgba(30, 41, 59, 0.06), 0 8px 10px -6px rgba(30, 41, 59, 0.04);
+  --shadow-modal: 0 20px 40px rgba(15, 23, 42, 0.2);
+  --shadow-drag: 0 14px 28px rgba(15, 23, 42, 0.25);
+  --shadow-toy: 0 6px 0px rgba(16, 185, 129, 0.35);
+  --ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --sa-top: env(safe-area-inset-top, 0px);
+  --sa-bottom: env(safe-area-inset-bottom, 0px);
+  --sa-left: env(safe-area-inset-left, 0px);
+  --sa-right: env(safe-area-inset-right, 0px);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff;
+  }
+}
+
+@layer components {
+  .t-display {
+    font-size: 2rem;
+    line-height: 1.375;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .t-page {
+    font-size: 1.5rem;
+    line-height: 1.417;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .t-section {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .t-child {
+    font-size: 1.125rem;
+    line-height: 1.556;
+  }
+  .t-label {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .t-caption {
+    font-size: 0.875rem;
+    line-height: 1.429;
+    font-weight: 500;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    min-width: 112px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    line-height: 1.333;
+    font-weight: 600;
+    transition:
+      background-color 120ms,
+      border-color 120ms,
+      transform 60ms;
+    user-select: none;
+    cursor: pointer;
+  }
+  .btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    background: var(--disabled) !important;
+    color: var(--muted-foreground) !important;
+    border-color: var(--disabled) !important;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 2px solid transparent;
+  }
+  .btn-primary:active:not(:disabled) {
+    background: var(--primary-active);
+  }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--foreground);
+    border: 2px solid var(--control);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--foreground);
+    border: 2px solid transparent;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background: var(--primary-soft);
+    }
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+  }
+  .card-toy {
+    background: var(--card);
+    border-radius: 24px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 8px 20px rgba(30, 41, 59, 0.05);
+    transition:
+      transform 150ms var(--ease),
+      box-shadow 150ms var(--ease),
+      border-color 150ms;
+  }
+  .card-toy:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 28px rgba(30, 41, 59, 0.09);
+    border-color: #cbd5e1;
+  }
+  .btn-toy-primary {
+    background: #10b981;
+    color: #ffffff;
+    box-shadow: 0 5px 0 #059669;
+    border-radius: 18px;
+    transition:
+      transform 80ms ease,
+      box-shadow 80ms ease,
+      background-color 120ms;
+  }
+  .btn-toy-primary:hover:not(:disabled) {
+    background: #34d399;
+  }
+  .btn-toy-primary:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #059669;
+  }
+  .btn-toy-amber {
+    background: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 5px 0 #d97706;
+    border-radius: 18px;
+    transition:
+      transform 80ms ease,
+      box-shadow 80ms ease,
+      background-color 120ms;
+  }
+  .btn-toy-amber:hover:not(:disabled) {
+    background: #fbbf24;
+  }
+  .btn-toy-amber:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #d97706;
+  }
+  .btn-toy-secondary {
+    background: #ffffff;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 5px 0 #cbd5e1;
+    border-radius: 18px;
+    transition:
+      transform 80ms ease,
+      box-shadow 80ms ease,
+      background-color 120ms;
+  }
+  .btn-toy-secondary:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #94a3b8;
+  }
+  .btn-toy-secondary:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #cbd5e1;
+  }
+  .shadow-modal {
+    box-shadow: var(--shadow-modal);
+  }
+  .shadow-drag {
+    box-shadow: var(--shadow-drag);
+  }
+
+  .cell-blocked {
+    background-image: repeating-linear-gradient(45deg, var(--disabled) 0 6px, var(--card) 6px 12px);
+  }
+  .piece-rot {
+    transition: transform 120ms var(--ease);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn,
+  .btn-secondary,
+  .btn-primary {
+    border-color: CanvasText !important;
+  }
+  .btn-primary {
+    background: Highlight !important;
+    color: HighlightText !important;
+  }
+  [role="gridcell"],
+  button[aria-pressed] {
+    border-color: CanvasText;
+  }
+  [aria-selected="true"],
+  button[aria-pressed="true"] {
+    border-color: Highlight !important;
+    outline: 2px solid Highlight !important;
+  }
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 2px;
+  }
+  .cell-blocked {
+    background-image: none !important;
+    border-color: GrayText !important;
+  }
+}

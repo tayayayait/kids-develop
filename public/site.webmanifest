@@ -1,0 +1,26 @@
+{
+  "name": "생각 연결 보드",
+  "short_name": "생각연결보드",
+  "description": "5×5 보드에서 조각을 놓고 돌리며 푸는 아동용 인지발달 교구",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf9f5",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

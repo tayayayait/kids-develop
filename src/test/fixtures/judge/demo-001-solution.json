@@ -1,0 +1,11 @@
+{
+  "problemId": "demo-001",
+  "expectedStatus": "correct",
+  "pieces": [
+    { "instanceId": "line-01", "location": "board", "cell": { "row": 2, "col": 0 }, "rotation": 0 },
+    { "instanceId": "line-02", "location": "board", "cell": { "row": 2, "col": 1 }, "rotation": 0 },
+    { "instanceId": "line-03", "location": "board", "cell": { "row": 2, "col": 2 }, "rotation": 0 },
+    { "instanceId": "line-04", "location": "board", "cell": { "row": 2, "col": 3 }, "rotation": 0 },
+    { "instanceId": "line-05", "location": "board", "cell": { "row": 2, "col": 4 }, "rotation": 0 }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "packId": "engineering-demo",
+  "contentVersion": "1.0.0",
+  "purpose": "development",
+  "title": "연결 엔진 검증용",
+  "pieceTypes": [
+    {
+      "id": "straight-blue",
+      "judgeKey": "straight-blue",
+      "name": "파란 직선",
+      "asset": "assets/pieces/straight-blue.svg",
+      "allowedRotations": [0, 90, 180, 270],
+      "equivalentRotations": [
+        [0, 180],
+        [90, 270]
+      ],
+      "topology": {
+        "ports": [
+          { "id": "w", "side": "W", "channel": "blue" },
+          { "id": "e", "side": "E", "channel": "blue" }
+        ],
+        "internalNodes": [],
+        "internalEdges": [["w", "e"]]
+      }
+    }
+  ],
+  "problems": [
+    {
+      "id": "demo-001",
+      "order": 1,
+      "title": "두 끝을 이어 보세요",
+      "prompt": ["파란 직선 조각 5개를 모두 사용해요.", "왼쪽과 오른쪽의 파란 끝을 이어 주세요."],
+      "pattern": {
+        "asset": "assets/patterns/demo-001.svg",
+        "alt": "5×5 보드의 3행 왼쪽과 오른쪽 경계에 파란 끝점이 있어요.",
+        "description": "파란 끝점은 3행 1열의 왼쪽과 3행 5열의 오른쪽에 있어요. 두 끝점을 연결해요."
+      },
+      "board": { "rows": 5, "cols": 5, "blockedCells": [] },
+      "pieces": [
+        { "id": "line-01", "typeId": "straight-blue", "locked": false },
+        { "id": "line-02", "typeId": "straight-blue", "locked": false },
+        { "id": "line-03", "typeId": "straight-blue", "locked": false },
+        { "id": "line-04", "typeId": "straight-blue", "locked": false },
+        { "id": "line-05", "typeId": "straight-blue", "locked": false }
+      ],
+      "initialPieces": [
+        { "instanceId": "line-01", "location": "tray", "rotation": 0 },
+        { "instanceId": "line-02", "location": "tray", "rotation": 0 },
+        { "instanceId": "line-03", "location": "tray", "rotation": 0 },
+        { "instanceId": "line-04", "location": "tray", "rotation": 0 },
+        { "instanceId": "line-05", "location": "tray", "rotation": 0 }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          { "row": 2, "col": 0 },
+          { "row": 2, "col": 4 }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": [{ "judgeKey": "straight-blue", "count": 5 }]
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          { "id": "start", "cell": { "row": 2, "col": 0 }, "side": "W", "channel": "blue" },
+          { "id": "finish", "cell": { "row": 2, "col": 4 }, "side": "E", "channel": "blue" }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,2292 @@
+{
+  "schemaVersion": 1,
+  "packId": "engineering-demo",
+  "contentVersion": "1.0.0",
+  "purpose": "development",
+  "title": "생각 연결 보드",
+  "pieceTypes": [
+    {
+      "id": "straight-blue",
+      "judgeKey": "straight-blue",
+      "name": "파란 직선",
+      "asset": "assets/pieces/straight-blue.svg",
+      "allowedRotations": [0, 90, 180, 270],
+      "equivalentRotations": [
+        [0, 180],
+        [90, 270]
+      ],
+      "topology": {
+        "ports": [
+          {
+            "id": "w",
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "e",
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "internalNodes": [],
+        "internalEdges": [["w", "e"]]
+      }
+    },
+    {
+      "id": "corner-blue",
+      "judgeKey": "corner-blue",
+      "name": "파란 꺾임",
+      "asset": "assets/pieces/corner-blue.svg",
+      "allowedRotations": [0, 90, 180, 270],
+      "equivalentRotations": [[0], [90], [180], [270]],
+      "topology": {
+        "ports": [
+          {
+            "id": "n",
+            "side": "N",
+            "channel": "blue"
+          },
+          {
+            "id": "e",
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "internalNodes": [],
+        "internalEdges": [["n", "e"]]
+      }
+    }
+  ],
+  "problems": [
+    {
+      "id": "p-001",
+      "order": 1,
+      "title": "🌱 새싹의 첫 걸음",
+      "prompt": ["새싹 조각 5개를 모두 사용해요.", "두 파란 끝점을 하나의 곧은 길로 이어요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 3행 1열의 왼쪽과 3행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 2,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 2,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-002",
+      "order": 2,
+      "title": "🌈 하늘 위 무지개 길",
+      "prompt": ["조각 5개를 모두 사용해요.", "구름 위를 걷듯이 맨 윗줄을 가로질러요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 왼쪽과 1행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 0,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 0,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-003",
+      "order": 3,
+      "title": "💧 시원한 폭포수",
+      "prompt": ["조각 5개를 모두 사용해요.", "위에서 아래로 쏴아! 쏟아지는 물줄기를 만들어요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 3열의 위쪽과 5행 3열의 아래쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": [
+          {
+            "judgeKey": "straight-blue",
+            "count": 5
+          }
+        ]
+      },
+      "judge": {
+        "mode": "exact",
+        "solutions": [
+          [
+            null,
+            null,
+            {
+              "judgeKey": "straight-blue",
+              "rotation": 90
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+              "judgeKey": "straight-blue",
+              "rotation": 90
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+              "judgeKey": "straight-blue",
+              "rotation": 90
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+              "judgeKey": "straight-blue",
+              "rotation": 90
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+              "judgeKey": "straight-blue",
+              "rotation": 90
+            },
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "p-004",
+      "order": 4,
+      "title": "🐰 토끼의 깡총 코너",
+      "prompt": ["조각 5개를 모두 사용해요.", "모퉁이를 쏙 돌아 당근 밭으로 가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 3행 1열의 왼쪽과 5행 3열의 아래쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 2
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 2,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 2
+            },
+            "side": "S",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-005",
+      "order": 5,
+      "title": "🪜 퐁당퐁당 징검다리",
+      "prompt": ["조각 7개를 모두 사용해요.", "계단을 한 칸 올라가며 시냇물을 건너요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 왼쪽과 3행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 7,
+        "maxPlaced": 7,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 2,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-006",
+      "order": 6,
+      "title": "⚡ 번개 지그재그 길",
+      "prompt": ["조각 7개를 모두 사용해요.", "왔다 갔다 신나는 지그재그 춤을 춰봐요!"],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 2열의 위쪽과 5행 4열의 아래쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 7,
+        "maxPlaced": 7,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 1
+          },
+          {
+            "row": 4,
+            "col": 3
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 1
+            },
+            "side": "N",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 3
+            },
+            "side": "S",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-007",
+      "order": 7,
+      "title": "🌲 깊은 숲 오솔길",
+      "prompt": ["조각 9개를 모두 사용해요.", "깊은 골짜기 아래로 둥글게 돌아가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 2행 1열의 왼쪽과 2행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 9,
+        "maxPlaced": 9,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 1,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 1,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-008",
+      "order": 8,
+      "title": "🪨 연못 속 돌 피하기",
+      "prompt": ["조각 7개를 모두 사용해요.", "가운데 놓인 큰 바위를 빙 둘러서 피해요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 3행 1열의 왼쪽과 3행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": [
+          {
+            "row": 2,
+            "col": 2
+          }
+        ]
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 7,
+        "maxPlaced": 7,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 2,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 2,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-009",
+      "order": 9,
+      "title": "🏛️ 튼튼한 성문 기둥",
+      "prompt": ["조각 9개를 모두 사용해요.", "단단히 고정된 조각을 지나서 길을 완성해요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 왼쪽과 5행 5열의 아래쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": true
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-6",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-7",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-8",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "board",
+          "cell": {
+            "row": 0,
+            "col": 0
+          },
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-8",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 9,
+        "maxPlaced": 9,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 4
+            },
+            "side": "S",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-010",
+      "order": 10,
+      "title": "🛝 씽씽 미끄럼틀",
+      "prompt": ["조각 9개를 모두 사용해요.", "계단 미끄럼틀을 타고 신나게 내려가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 위쪽과 5행 5열의 아래쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-5",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-6",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-7",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-8",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-8",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 9,
+        "maxPlaced": 9,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "N",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 4
+            },
+            "side": "S",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-011",
+      "order": 11,
+      "title": "💨 바람개비 언덕",
+      "prompt": ["조각 9개를 모두 사용해요.", "오른쪽 끝에서 왼쪽 끝으로 힘차게 달려가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 5열의 오른쪽과 5행 1열의 왼쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-6",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-7",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 9,
+        "maxPlaced": 9,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 0
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-012",
+      "order": 12,
+      "title": "💎 보석 바위 사이로",
+      "prompt": ["조각 5개를 모두 사용해요.", "바위들 틈새 좁은 길을 찾아 쏙 빠져나가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 3열의 위쪽과 3행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": [
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 3
+          }
+        ]
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 5,
+        "maxPlaced": 5,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 2
+            },
+            "side": "N",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 2,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-013",
+      "order": 13,
+      "title": "⛰️ 알록달록 무지개 산",
+      "prompt": ["조각 11개를 모두 사용해요.", "높은 산봉우리를 으쌰으쌰 두 번 넘어가요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 5행 1열의 왼쪽과 5행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-6",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-7",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 11,
+        "maxPlaced": 11,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 4,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-014",
+      "order": 14,
+      "title": "🐍 꼬마 뱀의 보물 탐험",
+      "prompt": ["조각 13개를 모두 사용해요.", "기다란 뱀처럼 요리조리 온 보드를 누벼요."],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 왼쪽과 5행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-6",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-7",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-8",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-9",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-8",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-9",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 13,
+        "maxPlaced": 13,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 4,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    },
+    {
+      "id": "p-015",
+      "order": 15,
+      "title": "🏆 전설의 대모험",
+      "prompt": ["조각 15개를 모두 사용해요.", "보드를 가득 채우는 마스터 레벨의 긴 길이에요!"],
+      "pattern": {
+        "alt": "5×5 보드에 파란 끝점 두 개가 있어요.",
+        "description": "파란 끝점은 1행 1열의 왼쪽과 3행 5열의 오른쪽에 있어요."
+      },
+      "board": {
+        "rows": 5,
+        "cols": 5,
+        "blockedCells": []
+      },
+      "pieces": [
+        {
+          "id": "line-1",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-2",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-3",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-4",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-5",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-6",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-7",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-8",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-9",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-10",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "line-11",
+          "typeId": "straight-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-1",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-2",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-3",
+          "typeId": "corner-blue",
+          "locked": false
+        },
+        {
+          "id": "bend-4",
+          "typeId": "corner-blue",
+          "locked": false
+        }
+      ],
+      "initialPieces": [
+        {
+          "instanceId": "line-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-4",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-5",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-6",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-7",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-8",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-9",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-10",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "line-11",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-1",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-2",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-3",
+          "location": "tray",
+          "rotation": 0
+        },
+        {
+          "instanceId": "bend-4",
+          "location": "tray",
+          "rotation": 0
+        }
+      ],
+      "requirements": {
+        "minPlaced": 15,
+        "maxPlaced": 15,
+        "requireAllMovablePieces": true,
+        "requiredCells": [
+          {
+            "row": 0,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 4
+          }
+        ],
+        "emptyCells": [],
+        "requiredTypeCounts": []
+      },
+      "judge": {
+        "mode": "connection",
+        "terminals": [
+          {
+            "id": "start",
+            "cell": {
+              "row": 0,
+              "col": 0
+            },
+            "side": "W",
+            "channel": "blue"
+          },
+          {
+            "id": "finish",
+            "cell": {
+              "row": 2,
+              "col": 4
+            },
+            "side": "E",
+            "channel": "blue"
+          }
+        ],
+        "requiredPairs": [["start", "finish"]],
+        "forbiddenPairs": [],
+        "allowDanglingPorts": false,
+        "allowCycles": false,
+        "allowBranches": false,
+        "allowDisconnectedComponents": false
+      }
+    }
+  ]
+}
